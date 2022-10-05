@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="number" class="oldal" oninput="szamolas()" placeholder="Negyzet oldala">
+        <!-- <div class="btn btn-success" onclick="szamolas()">Számol</div> -->
+        <p>Kerülete: <span class="terulet"></span></p>
+        <p>Területe: <span class="kerulet"></span></p>
+    </div>
+
+    <script>
+        function szamolas(){
+            let noldal = parseInt(document.querySelector('.oldal').value)
+            let ker = document.querySelector('.kerulet')
+            let ter = document.querySelector('.terulet')
+
+            let keruletszam = noldal*4
+            let teruletszam = noldal*noldal
+
+            ker.innerHTML = keruletszam
+            ter.innerHTML = teruletszam
+
+
+        }
+     
+    </script>
+</body>
+</html>
