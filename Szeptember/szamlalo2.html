@@ -14,14 +14,27 @@
     <h1 class="text-center">Számláló</h1>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="btn btn-success plus" onclick="setCounter()">+</div>
+            <div class="btn btn-success plus" onclick="setCounter(this)">+</div>
             <div class="counter btn  text-center border ml-2 mr-2">0</div>
-            <div class="btn btn-danger minus" onclick="setCounter()">-</div>
+            <div class="btn btn-danger minus" onclick="setCounter(this)">-</div>
         </div>
     </div>
 
     <script>
-        
+        function setCounter(obj){
+            let counter =+ document.querySelector('.counter').innerHTML
+            //console.log(obj.innerHTML)
+            /*
+            if(obj.innerHTML == '+'){
+                counter++
+            }else
+                counter--
+            
+            document.querySelector('.counter').innerHTML=counter
+        }*/
+
+        document.querySelector('.counter').innerHTML=obj.innerHTML == '+' ? ++counter : --counter
+    }
     </script>
 </body>
 </html>
