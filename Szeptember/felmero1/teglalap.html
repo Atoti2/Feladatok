@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Teglalap</title>
+</head>
+<body>
+    <div class="container">
+        <input type="number" class="hossz"  placeholder="Hossza">
+        <input type="number" class="szelesseg"  placeholder="Szelessege">
+     <div class="btn btn-success" onclick="szamolas()">Számol</div>
+        <p>Kerülete: <span class="terulet"></span></p>
+        <p>Területe: <span class="kerulet"></span></p>
+    </div>
+
+    <script>
+        function szamolas(){
+            let hossz = parseInt(document.querySelector('.hossz').value)
+            let szeles = parseInt(document.querySelector('.szelesseg').value)
+            let ker = document.querySelector('.kerulet')
+            let ter = document.querySelector('.terulet')
+
+            let keruletszam = 2*szeles + 2* hossz
+            let teruletszam = hossz * szeles
+
+            ker.innerHTML = keruletszam
+            ter.innerHTML = teruletszam
+
+            
+        }
+     
+    </script>
+</body>
+</html>
