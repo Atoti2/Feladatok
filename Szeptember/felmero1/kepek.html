@@ -8,20 +8,18 @@
 </head>
 <body>
     <div>
-        <img id="kep" src="fold.jpg" alt="">
+        <img id="kep" src="fold.jpg" alt="" width="300">
     </div>
     <button class="button" id="valt" onclick="changeImg()">Cserélés</button>
 
-    <script>
-       
-        function changeImg(){
+    <script>   
+    function changeImg(){
             let kep = document.getElementById("kep")
             if(kep.src.match("fold.jpg")){
                kep.src = "mars.jpg"
             }else{
                 kep.src = "fold.jpg"
             }
-   
         }
     </script>
 </body>
