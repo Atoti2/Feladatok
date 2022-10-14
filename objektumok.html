@@ -8,6 +8,7 @@
 </head>
 <body>
     <ul></ul>
+    <ol></ol>
     <script>
         //tomb
         const users = [
@@ -34,10 +35,13 @@
         ]  
         //for of
         let liStr = ''
+        let olStr = ''
         for(let obj of users){
             liStr += `<li>${obj.name}</li>`
+            olStr += `<li>${obj.email}</li>`
         }
         document.querySelector('ul').innerHTML = liStr
+        document.querySelector('ul').innerHTML = olStr
     </script>
 </body>
 </html>
