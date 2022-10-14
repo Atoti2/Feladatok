@@ -7,7 +7,7 @@
     <title>objektum</title>
 </head>
 <body>
-    
+    <ul></ul>
     <script>
         //tomb
         const users = [
@@ -33,9 +33,11 @@
             }
         ]  
         //for of
+        let liStr = ''
         for(let obj of users){
-            console.log(obj)
+            liStr += `<li>${obj.name}</li>`
         }
+        document.querySelector('ul').innerHTML = liStr
     </script>
 </body>
 </html>
