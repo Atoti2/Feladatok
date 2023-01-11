@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <title>JS osztályok</title>
+</head>
+<style>
+    form, h1{
+        text-align: center;
+        
+    }
+    input[type="text"]{
+        width: 180px;
+        padding: 15px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 25px;
+    }
+    input[type="button"]{
+        padding: 10px;
+        width: 120px;
+        margin-top: 5px;
+        border: 2px solid black;
+        border-radius: 25px;
+    }
+    input[type="text"]:focus{
+        background-color: #fefe;
+    }
+    input[type="button"]:hover{
+        background-color: green;
+        color: white;
+        cursor: pointer;
+    }
+    .dice-holder{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .kulon{
+        border: 1px solid black;
+        padding: 2px;
+        margin: 1px;
+    }
+</style>
+<div>
+    <h1>KOCKADOBÁS</h1>
+    <form>
+        <input id="dobas" type="text" placeholder="Add meg a dobások számát "> 
+        <input type="button" value="Start" onclick="start(this)">
+    </form>
+    <div class="dice-holder"></div>
+
+</div>
+<div class="sz1"></div>
+<div class="sz2"></div>
+<div class="sz3"></div>
+<body>
+  <script>
+       const tomb = ['null', 'one', 'two', 'three', 'four', 'five', 'six']
+       //Osztályt használva: 
+       class Dobas{
+        constructor(szam1, szam2, szam3){
+            this.szam1 = szam1
+            this.szam2 = szam2
+            this.szam3 = szam3
+        }
+        osszeg(){
+            return(this.szam1+this.szam2+this.szam3)
+        }    
+
+       }
+
+
+       //Példányosítunk
+       let dobasok, rand1, rand2, rand3
+       function start(e){
+        dobasok = []
+        let dobasSzam = document.getElementById("dobas").value
+        e.previousElementSibling.value = ""
+        for(let i = 0; i<dobasSzam; i++){
+            rand1 = Math.floor(Math.random()*6) + 1
+            rand2 = Math.floor(Math.random()*6) + 1
+            rand3 = Math.floor(Math.random()*6) + 1
+            dobasok.push(new Dobas(rand1, rand2, rand3))     
+        }
+     
+        render()
+       }
+       function render(){
+        let str=""
+        for(let obj of dobasok){
+            console.log(obj)
+            str+=`<div class="kulon">
+                <i class="fa-solid fa-dice-${tomb[obj.szam1]} fa-4x"></i>
+                <i class="fa-solid fa-dice-${tomb[obj.szam2]} fa-4x"></i>
+                <i class="fa-solid fa-dice-${tomb[obj.szam3]} fa-4x"></i>
+                </div>`
+        }
+        document.querySelector(".dice-holder").innerHTML=str
+       }
+    </script>
+</body>
+</html>

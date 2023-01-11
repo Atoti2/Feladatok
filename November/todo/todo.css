@@ -1,0 +1,29 @@
+body{
+    background: linear-gradient(to bottom right, #3b97de, #a41f16);
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+  
+}
+
+.joe2{
+    color: red;
+}
+
+.joe{
+    color: green;
+}
+.joea{
+    color: greenyellow;
+}
+ul{
+    list-style-type: none;
+}
+
+i{
+    cursor: pointer;
+}
+
+.donee {
+    text-decoration: line-through;
+}

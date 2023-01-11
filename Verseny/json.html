@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<select id="diak" onchange="show(this)">
+    <option value="0">Válassz..</option>
+</select>
+<section>
+    
+</section>
+
+
+
+    <script>
+        const diakok = [
+            {
+                id:1,
+                name:"Gyula",
+                year:2000,
+            },
+            {
+                id:2,
+                name:"Anna",
+                year:2001,
+            },
+            {
+                id:3,
+                name:"Ferenc",
+                year:2005,
+            }
+        ]
+        
+        let optionStr = ""
+
+        for (const obj of diakok) {
+            //console.log(obj.id, obj.name)
+            optionStr+=`<option value="${obj.id}">${obj.name}</option>`
+
+        }
+        document.getElementById('diak').innerHTML+=optionStr
+
+        function show(domObj){
+            //console.log(domObj.value)
+            let id = domObj.value
+            let selObj = diakok.find(o=>o.id==id)
+            console.log(selObj)
+            document.querySelector('section').innerHTML=`<h1>${selObj.name}</h1>
+            <p>Születési éve: ${selObj.year}</p>`
+        }
+        
+    </script>
+</body>
+</html>

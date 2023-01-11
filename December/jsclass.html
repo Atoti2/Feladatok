@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <title>JS osztályok</title>
+</head>
+<style>
+    form, h1{
+        text-align: center;
+        
+    }
+    input[type="text"]{
+        width: 180px;
+        padding: 15px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 25px;
+    }
+    input[type="button"]{
+        padding: 10px;
+        width: 120px;
+        margin-top: 5px;
+        border: 2px solid black;
+        border-radius: 25px;
+    }
+    input[type="text"]:focus{
+        background-color: #fefe;
+    }
+    input[type="button"]:hover{
+        background-color: green;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+<div>
+    <h1>KOCKADOBÁS</h1>
+    <form>
+        <input type="text" placeholder="Add meg a dobások számát "> 
+        <input type="button" value="Start" onclick="start(this)">
+    </form>
+    <i class="fa-solid fa-dice-two fa-4x"></i>
+</div>
+<div class="sz1"></div>
+<div class="sz2"></div>
+<div class="sz3"></div>
+<body>
+    <script>
+       let dobas1 = {
+        szam1: 1,
+        szam2: 5,
+        szam3: 4,
+       }
+       let dobas2 = {
+        szam1: 4,
+        szam2: 3,
+        szam3: 2,
+       }
+       //Melyik a legnagyobb szám a dobás 1-ben?
+       let maxSzam = dobas1.szam1
+       for(let szam in dobas1){
+        if(dobas1[szam]>maxSzam){
+            maxSzam = dobas1[szam]
+            console.log("A legnagyobb szam: " + maxSzam)
+        }
+       }
+ 
+
+       //Osztályt használva: 
+       class Dobas{
+        constructor(szam1, szam2, szam3){
+            this.szam1 = szam1
+            this.szam2 = szam2
+            this.szam3 = szam3
+        }
+        maxSzam(){
+            return Math.max(...[this.szam1, this.szam2, this.szam3])
+        }
+        minSzam(){
+            return Math.min(...[this.szam1, this.szam2, this.szam3])
+        }    
+        osszeg(){
+            return(this.szam1+this.szam2+this.szam3)
+        }    
+
+       }
+
+
+       //Példányosítunk
+       let dobas3 = new Dobas(3,5,2)
+       let dobas4 = new Dobas(1,2,6)
+       console.log("A dobás 3-ban a legnagyobb: " + dobas3.maxSzam())
+       console.log("A dobás 4-ban a legnagyobb: " + dobas4.maxSzam())
+       console.log("A dobás 3-ban a legkisebb: " + dobas3.minSzam())
+       console.log("A dobás 4-ban a legkisebb: " + dobas4.minSzam())
+       console.log("A dobás 3 összege: " + dobas3.osszeg())
+       //Jelenítsük meg a dobás 3-at ikonokkal a divben
+       let tomb = ['null', 'one', 'two', 'three', 'four', 'five', 'six']
+       let szam1 = document.querySelector('.sz1').innerHTML=`<i class="fa-solid fa-dice-${tomb[dobas3.szam1]} fa-4x"></i>`
+       let szam2 = document.querySelector('.sz2').innerHTML=`<i class="fa-solid fa-dice-${tomb[dobas3.szam2]} fa-4x"></i>`
+       let szam3 = document.querySelector('.sz3').innerHTML=`<i class="fa-solid fa-dice-${tomb[dobas3.szam3]} fa-4x"></i>`
+       
+       function start(e){
+        let dobasSzam = e.previousElementSibling.value
+        console.log(dobasSzam)
+        e.previousElementSibling.value = ""
+       }
+    </script>
+</body>
+</html>

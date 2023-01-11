@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>My Todos</title>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center text-center">
+        <div class="text-center">
+            <h1 class="">My Todos</h1>
+            <div>
+                <input class="border rounded m-2" type="text" placeholder="add new todo">
+                <i tpye="button" class="fa-regular fa-square-plus" style="height: 35px,width35px;"></i>
+            </div>
+
+            <div class="row border bg-white align-items-center justify-content-between p-1 rounded-top ">
+                <ul id="test" class="m-0 p-2"></ul>
+                <ul id="test2" class="m-0 p-2 "></ul>
+                <p>filter</p>
+                <!-- <i type="button" class="  joe fa-regular fa-circle-check"></i>
+                <p class="m-0 p-2">vásárlás</p>
+                <i type="button" class="  joe2 fa-solid fa-trash-can "></i> -->
+            </div>
+           
+
+
+        </div>
+
+       
+    </div>
+    
+
+   
+
+
+    <script>
+        const todos = ["vásárlás", "tankolás", "film"]
+        for(let todo of todos) {
+            document.querySelector("#test").innerHTML+=
+            `
+            <li>${todo}</li>
+            `
+        }
+
+        document.getElementById("test2").innerHTML=todos.map(todo => `<li>${todo}`).join('')
+        
+        const newArr = todos.filter(todo=>todo!="film")
+        console.log(newArr);
+
+        let newArr2 = todos.filter(todo=>todo=="edzés")
+        todo=newArr2
+
+        
+    </script>
+</body>
+
+</html>

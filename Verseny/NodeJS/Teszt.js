@@ -1,0 +1,1 @@
+console.log("A node futtatja a js fájlunkat.")
