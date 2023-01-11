@@ -1,0 +1,17 @@
+body{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.negyzet{
+    height: 100px;
+    width: 100px;
+    
+    cursor: pointer;
+}
+
+.msg{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
