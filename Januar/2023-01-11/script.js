@@ -19,6 +19,7 @@ function init() {
     let index = Math.round(Math.random() * 5)
     document.getElementById("color").innerHTML = colors[index]
     document.querySelector("h1").style.backgroundColor = "white"
+    msg.innerHTML = ""
 }
 
 function verify(e) {
