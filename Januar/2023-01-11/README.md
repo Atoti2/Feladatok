@@ -1,5 +1,5 @@
 
-# Verziókezelés
+# Verziókezelés gittel
 
 Parancssorban PAT-al:
 
